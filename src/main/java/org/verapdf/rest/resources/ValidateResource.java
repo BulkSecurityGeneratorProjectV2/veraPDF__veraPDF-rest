@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.Files;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -129,7 +130,7 @@ public class ValidateResource {
 
 		File file;
 		try {
-			file = File.createTempFile("cache", "");
+			file = Files.createTempFile("cache", "").toFile();
 		} catch (IOException exception) {
 			throw new VeraPDFException("IOException creating a temp file", exception); //$NON-NLS-1$
 		}
